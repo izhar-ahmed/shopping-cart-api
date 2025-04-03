@@ -62,18 +62,23 @@ const getCart = async (req, res) => {
             }
             
             itemList.push(product.name)
-            subtotal += (product.price * item.quantity)
+            const itemSubtotal = product.price * item.quantity;
+            subtotal += itemSubtotal;
             
         console.log(subtotal)
             if(product.offer === "Buy 2 Get 1 Free"){
                 discount = Math.floor(item.quantity/3) * product.price
-                totalPrice = subtotal - discount
             } else {
                 totalPrice = subtotal
             }
         }
-        tax = Math.round((12.5/100)*totalPrice)
-        totalPrice += tax
+
+        totalPrice = subtotal - discount;
+
+        tax = Math.round((12.5 / 100) * totalPrice);
+        totalPrice += tax;
+
+
         const data = {
             subtotal,
             discount,
