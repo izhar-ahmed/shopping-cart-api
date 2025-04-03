@@ -74,7 +74,6 @@ const getCart = async (req, res) => {
         }
         tax = Math.round((12.5/100)*totalPrice)
         totalPrice += tax
-        totalPrice = Math.round(totalPrice * 100) / 100;
         const data = {
             subtotal,
             discount,
