@@ -68,8 +68,6 @@ const getCart = async (req, res) => {
         console.log(subtotal)
             if(product.offer === "Buy 2 Get 1 Free"){
                 discount = Math.floor(item.quantity/3) * product.price
-            } else {
-                totalPrice = subtotal
             }
         }
 
